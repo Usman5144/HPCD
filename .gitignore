@@ -1,0 +1,45 @@
+# Python / editors
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+.vscode/
+.idea/
+# Never commit credentials, caches or heavy private artifacts
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*_token*
+**/checkpoints/
+**/models/
+**/.cache/
+**/cache/
+**/cloud_backup/
+**/backups/
+**/logs/
+**/generations/
+**/third_party/
+**/external/
+**/offline_wheels*/
+# Dataset and output files are opt-in. Keep the explicitly included small, frozen metadata.
+data/
+outputs/
+reports/
+*.xlsx
+*.xls
+*.zip
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.parquet
+*.pkl
+*.pickle
+*.arrow
+*.jsonl

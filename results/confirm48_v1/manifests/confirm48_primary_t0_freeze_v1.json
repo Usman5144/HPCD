@@ -1,0 +1,128 @@
+{
+  "status": "FROZEN_COMPLETE",
+  "experiment": "CONFIRM48_V1",
+  "stage": "Primary confirmatory T0 endpoint",
+  "scientific_classification": "REPRODUCED",
+  "comparison": "HPCD-n0 minus Vanilla T=1.0",
+  "sign_convention": "negative delta means HPCD is closer to the frozen human T0 target",
+  "absolute_T0": {
+    "vanilla_t10_mean": 1.2194043123127005,
+    "hpcd_n0_mean": 0.77451596574869
+  },
+  "instance_level": {
+    "n": 95,
+    "mean_delta": -0.4448883465640107,
+    "median_delta": -0.19211165609499226,
+    "improved": 58,
+    "worsened": 15,
+    "ties": 22
+  },
+  "primary_inference": {
+    "unit": "RAID base ID",
+    "n_base_clusters": 48,
+    "domain_stratification": {
+      "news": 12,
+      "reddit": 12,
+      "reviews": 12,
+      "wiki": 12
+    },
+    "generator_handling": "average all available paired generator-specific effects within each base ID first",
+    "cluster_point": -0.4441082439930872,
+    "ci95": [
+      -0.5911256659667654,
+      -0.3040240408077499
+    ],
+    "p_effect_lt_0": 1.0,
+    "bootstrap_B": 50000,
+    "bootstrap_seed": 2027
+  },
+  "descriptive_subgroups": {
+    "by_source_generator": {
+      "deepseek_r1_qwen7b_prefill": {
+        "n": 48,
+        "mean_delta": -0.5346343292050885
+      },
+      "qwen25_3b": {
+        "n": 47,
+        "mean_delta": -0.3532328749305699
+      }
+    },
+    "by_domain_cluster_point": {
+      "news": -0.5552027570445893,
+      "reddit": -0.5513477554753637,
+      "reviews": -0.43838744091875564,
+      "wiki": -0.23149502253363993
+    },
+    "interpretation_rule": "subgroups are descriptive only; do not claim subgroup statistical significance from these point estimates"
+  },
+  "comparison_to_fresh95": {
+    "fresh95_cluster_point": -0.3762651213,
+    "fresh95_ci95": [
+      -0.5278136362,
+      -0.229011683
+    ],
+    "confirm48_cluster_point": -0.4441082439930872,
+    "confirm48_ci95": [
+      -0.5911256659667654,
+      -0.3040240408077499
+    ],
+    "interpretation": "Independent CONFIRM48 reproduces the same negative pooled effect with a 95% cluster-bootstrap CI excluding zero."
+  },
+  "artifacts": {
+    "selected_itt": {
+      "path": "results/confirm48_v1/process/confirm48_selected_itt_v1.jsonl",
+      "sha256": "6e1beccdb415279fa6e4ff25a2f983f69fd725a2deee87ecb21936fb49aaf06e"
+    },
+    "selection_freeze": {
+      "path": "results/confirm48_v1/manifests/confirm48_quality_selection_freeze_v1.json",
+      "sha256": "2cbf81902e7d47a3197bf9522fea3a3265e9c3eb85d9975d2eddc16b8ceece0f"
+    },
+    "score_cache": {
+      "path": "results/confirm48_v1/process/confirm48_primary_t0_v1/unique_text_t0_cache.jsonl",
+      "sha256": "f9a4fb066f9cbba314149590a26f4bc0e5bc6111e08b5251a270c7e83bd8433c"
+    },
+    "scored_outputs": {
+      "path": "results/confirm48_v1/process/confirm48_primary_t0_v1/selected_outputs_t0_scores.jsonl",
+      "sha256": "9b4c7354bfdc690d37cf6e42970297ad7ff9d4291fcdd0b7add58dabc68ae1a6"
+    },
+    "paired_effects": {
+      "path": "results/confirm48_v1/process/confirm48_primary_t0_v1/primary_pairs.csv",
+      "sha256": "67d72b6482b4bf295a4d1f22cbb796793469f275bd38f5e4715c4436d4a1814c"
+    },
+    "cluster_effects": {
+      "path": "results/confirm48_v1/process/confirm48_primary_t0_v1/base_cluster_effects.csv",
+      "sha256": "2ccc8f651992ce836e3182182fcd1fd2cafa389761411740811fbc185e383ec4"
+    },
+    "summary": {
+      "path": "results/confirm48_v1/process/confirm48_primary_t0_v1/summary.json",
+      "sha256": "837d9d36d5c768e1c7cfed1f500c1ec12fbf836d621015f6e8ac728aba5ea74e"
+    },
+    "confirm48_runner": {
+      "path": "code/confirm48/run_confirm48_primary_t0_v1.py",
+      "sha256": "91e45341131c9909bc82e556265f8b5ed2878d4d7f8b4f217c848f7ed330aa3e"
+    },
+    "historical_primary_scorer": {
+      "path": "code/hpcd/run_fresh95_primary_t0_v1.py",
+      "sha256": "5321752a458e060591623acf62ec14ab6a2be0c94d7033bd9d742a80e000953d"
+    },
+    "historical_score_tokens_helper": {
+      "path": "code/hpcd/reanalyze_t2b7_common_metrics_v1.py",
+      "sha256": "97adab7677936e1a528bb3a9d9418a11f35ca0e3f7e12849d89705d0552a4f83"
+    },
+    "frozen_hjtm": {
+      "path": "results/hjtm/final_hjtm_v1/hjtm_final_v1.json",
+      "sha256": "1abd60c38a8787c4d44cf4e81ec157eaf18745ce1dec28c366417030b1a22c61"
+    }
+  },
+  "primary_endpoint_locked": true,
+  "post_freeze_rules": {
+    "retune_hpcd": false,
+    "change_quality_gate": false,
+    "reselect_outputs": false,
+    "regenerate_confirm48": false,
+    "change_t0_scorer": false,
+    "change_bootstrap": false,
+    "use_external_baselines_to_modify_primary_result": false
+  },
+  "external_baseline_status": "Primary CONFIRM48 endpoint is now locked; pre-frozen external baseline outputs such as DIPPER may be opened and evaluated without contaminating the primary confirmation."
+}

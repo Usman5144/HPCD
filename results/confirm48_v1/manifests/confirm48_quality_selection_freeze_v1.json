@@ -1,0 +1,77 @@
+{
+  "status": "FROZEN_COMPLETE",
+  "experiment": "CONFIRM48_V1",
+  "stage": "Quality-first ITT selection",
+  "instances": 95,
+  "base_clusters": 48,
+  "selected_rows": 190,
+  "conditions": {
+    "vanilla_t10": {
+      "rows": 95,
+      "rewrites": 67,
+      "abstentions": 28
+    },
+    "hpcd_n0": {
+      "rows": 95,
+      "rewrites": 69,
+      "abstentions": 26
+    }
+  },
+  "quality_gate": {
+    "mpnet_similarity_ge": 0.92,
+    "numbers_preserved": true,
+    "dates_preserved": true,
+    "entity_rule": "source-only spaCy entities must remain present as normalized surface strings",
+    "length_ratio_threshold": null,
+    "nonempty": true
+  },
+  "selection_policy": {
+    "within_slot": "first quality-valid attempt",
+    "vanilla_t10": "first quality-valid slot",
+    "hpcd_n0": "minimum generation-time n0 trajectory_typicality among quality-valid slots",
+    "abstention": "return frozen source unchanged",
+    "detector_feedback": false
+  },
+  "artifacts": {
+    "rescored_candidates": {
+      "path": "results/confirm48_v1/quality/confirm48_quality_selection_v1/rescored_candidates.jsonl",
+      "sha256": "019f43724aa71e8d396ca169b9244aabe5aa7962a0e886f241038cf551bc252e"
+    },
+    "selected_outputs_original": {
+      "path": "results/confirm48_v1/quality/confirm48_quality_selection_v1/selected_outputs.jsonl",
+      "sha256": "6e1beccdb415279fa6e4ff25a2f983f69fd725a2deee87ecb21936fb49aaf06e"
+    },
+    "canonical_selected_itt": {
+      "path": "results/confirm48_v1/process/confirm48_selected_itt_v1.jsonl",
+      "sha256": "6e1beccdb415279fa6e4ff25a2f983f69fd725a2deee87ecb21936fb49aaf06e",
+      "relationship": "byte-identical copy of selected_outputs_original"
+    },
+    "quality_summary": {
+      "path": "results/confirm48_v1/quality/confirm48_quality_selection_v1/summary.json",
+      "sha256": "70c76c2759ebc31bbec73030057bdddd4f8234c51fe8a54e8017838139ec1fce"
+    },
+    "quality_runner": {
+      "path": "code/confirm48/run_confirm48_quality_selection_v1.py",
+      "sha256": "c93fb6b828f6e40e6512e06e925e28d191d87a009f97cf1cc1580a924ce84b23"
+    },
+    "candidate_generation_freeze": {
+      "path": "results/confirm48_v1/manifests/confirm48_candidate_generation_freeze_v1.json",
+      "sha256": "6de84fb9328e0a26666e0be35035057fa080263c6d1347420baade107dad52d0"
+    },
+    "source_universe": {
+      "path": "results/confirm48_v1/source_generations/confirm48_machine_sources_v1.jsonl",
+      "sha256": "d7d72918046b686f8c4554dd98b8036bcfb10ce18744bd0ced3216f01616b356"
+    }
+  },
+  "post_selection_rules": {
+    "reselect_outputs": false,
+    "change_quality_gate": false,
+    "change_hpcd": false,
+    "regenerate_candidates": false,
+    "resample_confirm48": false,
+    "use_t0_for_selection": false,
+    "use_detector_feedback": false,
+    "analyze_confirm48_dipper_before_primary_freeze": false
+  },
+  "next_stage": "Evaluation-only frozen T0 scoring followed by 48-base-ID domain-stratified bootstrap."
+}

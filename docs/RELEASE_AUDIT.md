@@ -1,0 +1,63 @@
+# Release packaging audit
+
+- Source archives combined: Stage 2 (36 files), Stage 3 (17 files), no duplicates.
+- Scientific provenance hashes: original pinned controller, development generation, quality scorer and selection finalizer all verified.
+- HJTM model SHA-256 verified; artifact included without modification.
+- Local path sanitization only: macOS and Linux project roots, HF snapshots, model-cache references, conda prefix. This changes source byte hashes but no scientific numeric constants.
+- Static syntax checks, offline frozen-spec tests, and synthetic-vocabulary decoder smoke tests pass. No checkpoint inference or experiment replay.
+- External baseline repositories and private result inputs not included.
+- Git history not included; create a new Git repository from this clean working tree.
+- Owner must choose LICENSE, inspect every file manually, verify all runtime dependencies and decide which frozen data manifests can be released.
+
+## Sanitization summary
+
+- configs/environment.yml: removed conda installation prefix
+- configs/hpcd/FINAL_METHOD_FREEZE.json: pseudonymized checkpoint path
+- code/hpcd/generate_hpcd_autoregressive_smoke_v1.py: portable ROOT bindings: 1
+- code/hpcd/generate_hpcd_autoregressive_smoke_v1.py: replace environment-local path 1
+- code/hpcd/test_hpcd_controller_v1.py: portable ROOT bindings: 1
+- code/hpcd/test_hpcd_controller_v1.py: replace environment-local path 1
+- code/hpcd/test_reference_aligned_generation_v2.py: portable ROOT bindings: 1
+- code/hpcd/test_reference_aligned_generation_v2.py: replace environment-local path 1
+- code/hpcd/run_fresh95_primary_t0_v1.py: portable ROOT bindings: 1
+- code/hpcd/run_fresh95_primary_t0_v1.py: replace environment-local path 1
+- code/hpcd/finalize_fresh95_surface_entity_selection_v1.py: portable ROOT bindings: 1
+- code/hpcd/run_p06_temperature_t11_v1.py: portable ROOT bindings: 1
+- code/hpcd/run_p06_temperature_t11_v1.py: replace environment-local path 1
+- code/hjtm/build_final_hjtm_decoder_model_v1.py: portable ROOT bindings: 1
+- code/hjtm/fit_joint_trajectory_cv_v1.py: portable ROOT bindings: 1
+- code/hjtm/evaluate_trajectory_typicality_v1.py: portable ROOT bindings: 1
+- code/hjtm/build_independent_qwen15b_hjtm_v1.py: portable ROOT bindings: 1
+- code/confirm48/build_confirm48_split_v1.py: portable ROOT bindings: 1
+- code/confirm48/freeze_confirm48_source_universe_v1.py: portable ROOT bindings: 1
+- code/confirm48/run_confirm48_primary_t0_v1.py: portable ROOT bindings: 1
+- code/confirm48/run_confirm48_primary_t0_v1.py: replace environment-local path 1
+- code/confirm48/run_confirm48_quality_selection_v1.py: portable ROOT bindings: 1
+- code/final_analysis/build_occupancy_v2.py: portable ROOT bindings: 1
+- code/final_analysis_v2/finalize_experimental_package_v1.py: portable ROOT bindings: 1
+- code/copa/run_copa3b_fresh95_full_v1.py: portable ROOT bindings: 1
+- code/copa/run_copa3b_fresh95_full_v1.py: replace environment-local path 1
+- code/copa/run_copa3b_fresh95_full_v1.py: replace environment-local path 1
+- code/copa/run_copa3b_fresh95_full_v1.py: replace environment-local path 1
+- code/extension_oct2026_v1/dipper/run_dipper_fresh95_primary_t0_v1.py: portable ROOT bindings: 1
+- code/extension_oct2026_v1/dipper/run_dipper_fresh95_primary_t0_v1.py: replace environment-local path 1
+- code/extension_oct2026_v1/dipper/run_dipper_confirm48_primary_t0_v1.py: portable ROOT bindings: 1
+- code/extension_oct2026_v1/dipper/run_dipper_confirm48_primary_t0_v1.py: replace environment-local path 1
+- code/extension_oct2026_v1/run_mage_frozen523_v1.py: portable ROOT bindings: 1
+- results/detectors/fresh95_final_v1/surpmark/final_v1/run_surpmark_full_v1.py: portable ROOT bindings: 1
+- results/detectors/fresh95_final_v1/surpmark/final_v1/run_surpmark_full_v1.py: replace environment-local path 1
+- results/detectors/fresh95_final_v1/simple_scores/run_simple_scores_full523_v1.py: portable ROOT bindings: 1
+- code/hpcd/run_t2b7_tv_matched_generation_v1.py: portable ROOT bindings: 1
+- code/hpcd/run_t2b7_tv_matched_generation_v1.py: replace environment-local path 1
+- code/hpcd/reanalyze_t2b7_common_metrics_v1.py: portable ROOT bindings: 1
+- code/hpcd/reanalyze_t2b7_common_metrics_v1.py: replace environment-local path 1
+- code/hpcd/analyze_fresh95_quality_selection_v1.py: portable ROOT bindings: 1
+- code/hpcd/run_t2c4_dev111_threegen_candidates_v3.py: portable ROOT bindings: 1
+- code/hpcd/run_t2c4_dev111_threegen_candidates_v3.py: replace environment-local path 1
+- code/hpcd/analyze_t2c4_dev111_quality_selection_v1.py: portable ROOT bindings: 1
+- code/hpcd/finalize_t2c4_dev111_surface_entity_selection_v2.py: portable ROOT bindings: 1
+- code/hpcd/analyze_dev111_factorial_common_n0_v3.py: portable ROOT bindings: 1
+- code/hpcd/run_dev111_candidate_common_n0_and_factorial_v2.py: portable ROOT bindings: 1
+- code/hpcd/run_dev111_candidate_common_n0_and_factorial_v2.py: replace environment-local path 1
+- code/hpcd/run_t2c4_dev111_common_rescore_v1.py: portable ROOT bindings: 1
+- code/hpcd/run_t2c4_dev111_common_rescore_v1.py: replace environment-local path 1

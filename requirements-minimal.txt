@@ -1,0 +1,13 @@
+# Approximate execution dependencies; frozen full environment is configs/environment.yml.
+# Platform-specific torch wheels, transformers and models must be installed for your hardware.
+numpy
+pandas
+torch
+transformers
+accelerate
+sentence-transformers
+spacy
+scikit-learn
+scipy
+safetensors
+sentencepiece

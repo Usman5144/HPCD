@@ -1,0 +1,55 @@
+{
+  "status": "FROZEN_COMPLETE",
+  "experiment": "CONFIRM48_V1",
+  "stage": "Vanilla + HPCD-n0 candidate generation",
+  "scientific_status": "Generation completed under the pre-frozen CONFIRM48 protocol.",
+  "source_instances": 95,
+  "base_clusters": 48,
+  "candidate_rows": 1520,
+  "conditions": {
+    "vanilla_t10": 760,
+    "hpcd_n0": 760
+  },
+  "candidate_grid": {
+    "K": 4,
+    "attempts_per_slot": 2,
+    "complete": true
+  },
+  "generation_exit_code": 0,
+  "run_seconds": 19683.37522959709,
+  "artifacts": {
+    "candidates": {
+      "path": "results/confirm48_v1/generations/confirm48_final_candidates_v1/candidates.jsonl",
+      "sha256": "ac46b7a1df18db1b49317aae71f6835b9e249e62e2aecaefdb0cfb5d593e76d3"
+    },
+    "summary": {
+      "path": "results/confirm48_v1/generations/confirm48_final_candidates_v1/summary.json",
+      "sha256": "c1f0447a34506ef17d04ab80335ef2a33f9e28cde337f2b3189909a66f81b147"
+    },
+    "rewrite_manifest": {
+      "path": "results/confirm48_v1/manifests/confirm48_rewrite_manifest_v1.json",
+      "sha256": "e2f455278bd3d9797827452db0ab9c5fe886d838ac58a92c7c9bd8e39b7ca5e3"
+    },
+    "generation_prepare": {
+      "path": "results/confirm48_v1/manifests/confirm48_rewrite_generation_prepare_v1.json",
+      "sha256": "7364566090c3cb97dc6c4ce5519c747cff153248f2e8a27f8446bd284f8b4756"
+    },
+    "source_freeze": {
+      "path": "results/confirm48_v1/manifests/confirm48_source_freeze_v1.json",
+      "sha256": "66bf4b6eb81c8cc12b3030a17cb98ebbfce1a6fc3f63ac2b549d0a6e6d7424bf"
+    },
+    "runner": {
+      "path": "code/confirm48/run_confirm48_final_candidates_v1.py",
+      "sha256": "d51bf78b0ede8fe48588c768c47815c33ac8c7952d46749aaae52a60a4d97fc2"
+    }
+  },
+  "post_generation_rules": {
+    "regenerate_candidates": false,
+    "resample_confirm48": false,
+    "retune_hpcd": false,
+    "change_quality_threshold": false,
+    "use_detector_feedback": false,
+    "inspect_confirm48_dipper_scientific_results_before_primary_freeze": false
+  },
+  "next_stage": "Frozen quality-first selection: MPNet >= 0.92 + number/date + source-only entity-surface preservation."
+}

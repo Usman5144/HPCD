@@ -1,0 +1,117 @@
+{
+  "status": "FINAL_METHOD_FROZEN",
+  "freeze_version": "HPCD_FINAL_V1",
+  "frozen_at": "2026-10-06T20:41:45.414501+08:00",
+  "purpose": "Freeze all scientific method choices before fresh held-out evaluation.",
+  "method": {
+    "name": "Human-Process Control Decoding",
+    "primary_variant": "HPCD-n0",
+    "controller_order": 0,
+    "beta": 0.22,
+    "reference_model": "Qwen2.5-3B-Instruct",
+    "reference_model_path": "${HPCD_MODEL_PATH} (local model checkpoint; original installation path omitted for double-blind release)",
+    "controller_mode": "human occupancy prior",
+    "human_process": {
+      "order": 0,
+      "num_mass_bins": 6,
+      "mass_boundaries": [
+        0.4275209308,
+        0.6033873161,
+        0.747558713,
+        0.8715316256,
+        0.9653391441
+      ],
+      "num_entropy_bins": 3,
+      "entropy_boundaries": [
+        1.4853201707,
+        2.910671552
+      ],
+      "human_nll_calibration_n0": {
+        "mean": 1.599508,
+        "sd": 0.054714
+      },
+      "canonical_hjtm_path": "results/hjtm/final_hjtm_v1/hjtm_final_v1.json",
+      "canonical_hjtm_sha256": "1abd60c38a8787c4d44cf4e81ec157eaf18745ce1dec28c366417030b1a22c61",
+      "definition_sha256": "4d53e514da139c33f515b55f8e63ccdb98c7b6beab5c4a1f5a1f814205e6f23e"
+    }
+  },
+  "decoding": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "K": 4,
+    "attempts_per_slot": 2,
+    "base_seed": 2027,
+    "seed_policy": "SHA256-derived stable seed using BASE_SEED, generator_key, sample_id, slot, attempt",
+    "first_generated_token_controlled": false,
+    "terminal_probability_preserved": true,
+    "safe_support": true,
+    "minimal_perturbation": true
+  },
+  "quality_gate": {
+    "semantic_model": "sentence-transformers/all-mpnet-base-v2",
+    "semantic_similarity_threshold": 0.92,
+    "numbers_preserved": true,
+    "dates_preserved": true,
+    "entity_rule": "source-only spaCy entities must remain present as normalized surface strings in the generated output",
+    "nonempty": true,
+    "length_ratio_threshold": null,
+    "length_ratio_use": "post-hoc diagnostic only"
+  },
+  "selection": {
+    "within_slot": "first quality-valid attempt",
+    "vanilla": "first quality-valid slot",
+    "hpcd": "minimum generation-time n0 trajectory_typicality among quality-valid slots",
+    "tie_break": "lowest slot index",
+    "abstention": "return source unchanged",
+    "detector_feedback_used": false
+  },
+  "evaluation_policy": {
+    "primary_human_process_metric": "canonical n0 absolute typicality T0",
+    "lower_is_better": true,
+    "independent_scorer": "Qwen2.5-1.5B-Instruct human-only n0 model",
+    "cluster_unit": "base sample_id",
+    "bootstrap": "domain-stratified cluster bootstrap",
+    "bootstrap_replicates": 50000,
+    "bootstrap_seed": 2027
+  },
+  "code_provenance": {
+    "controller": {
+      "path": "code/hpcd/hpcd_reference_aligned_v2.py",
+      "sha256": "177b1d5165a0da67fdc51f8750877839ce537e170993c36d52a74ffd5f791949"
+    },
+    "generation": {
+      "path": "code/hpcd/run_t2c4_dev111_threegen_candidates_v3.py",
+      "sha256": "0f267fa31f4b58d2365163c94324ed8313a680d17eb3bceac19b2bc5ed9c7845"
+    },
+    "quality_scoring": {
+      "path": "code/hpcd/analyze_t2c4_dev111_quality_selection_v1.py",
+      "sha256": "9018a89c94770c584f8ec29df510be02f4ba5329bb38a6fdb97d77897e7c614f"
+    },
+    "corrected_entity_finalizer": {
+      "path": "code/hpcd/finalize_t2c4_dev111_surface_entity_selection_v2.py",
+      "sha256": "a3e9a1f4a6b2043c906465185012dc1dd5e2cd7a1b39b6ccc2277a6ef70bff74"
+    }
+  },
+  "validated_dev_provenance": {
+    "corrected_candidate_pool_sha256": "b9ddf8018ffb9c0b9d3fa5a562fc24c86eb18a366d5488e3225ed31d4275fad8",
+    "selected_outputs_sha256": "4676157d02d323fd1f78d0a97e172c73caf81a43d4887aaa07b09652fa2ca3dd"
+  },
+  "development_decisions": {
+    "n0_is_primary": true,
+    "n1_status": "ablation only; no further tuning",
+    "temperature_control_status": "T=1.1 supportive but not statistically decisive",
+    "shuffled_prior_status": "negative control result; exact human mapping was not shown to be uniquely necessary",
+    "p07_final_decision_sha256": "bf451db2e5c9b44e1b53987dfb7ff81cd66d965567df79a806d25ba050db5ce0"
+  },
+  "post_freeze_rules": {
+    "scientific_parameter_tuning_allowed": false,
+    "prompt_tuning_allowed": false,
+    "beta_tuning_allowed": false,
+    "quality_threshold_tuning_allowed": false,
+    "selector_tuning_allowed": false,
+    "human_bin_changes_allowed": false,
+    "fresh_result_driven_method_changes_allowed": false,
+    "technical_bug_fixes": "allowed only when scientifically equivalent, documented, hashed, and made without using outcome direction to choose the fix"
+  },
+  "next_stage": "fresh held-out evaluation"
+}

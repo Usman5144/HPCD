@@ -1,0 +1,102 @@
+{
+  "status": "EXPERIMENTAL_PACKAGE_FROZEN_COMPLETE",
+  "analysis_timestamp_utc": "2026-10-08T19:06:51.397968+00:00",
+  "repository": {
+    "git_commit": null,
+    "git_dirty": null
+  },
+  "environment": {
+    "python": "3.11.16 (main, Aug 27 2026, 14:37:43) [Clang 20.1.8 ]",
+    "platform": "macOS-27.0-arm64-arm-64bit",
+    "numpy": "2.4.6",
+    "spacy": "3.8.16",
+    "spacy_model": "core_web_sm",
+    "spacy_model_version": "3.8.0"
+  },
+  "frozen_parameters": {
+    "HPCD": {
+      "backbone": "Qwen2.5-3B-Instruct",
+      "controller_order": 0,
+      "beta": 0.22,
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "seed": 2027
+    },
+    "DIPPER": {
+      "checkpoint": "kalpeshk2011/dipper-paraphraser-xxl",
+      "lex_diversity": 60,
+      "order_diversity": 60,
+      "sent_interval": 3,
+      "do_sample": true,
+      "top_p": 0.75,
+      "max_length": 512,
+      "global_seed": 15485863
+    },
+    "quality_bootstrap": {
+      "B": 50000,
+      "seed": 2027,
+      "cluster_unit": "RAID base ID",
+      "stratification": "domain",
+      "within_base": "average available generator-specific paired deltas first"
+    },
+    "quality_metrics": {
+      "MPNet": "frozen exact historical CUDA regression; batch size 16",
+      "NLI": "sentence-aware <=220-token chunks; bidirectional max-support weighted document score",
+      "entity": "source-only spaCy entity surfaces; normalized exact occurrence",
+      "number_date": "exact case-insensitive source-string preservation",
+      "edit": "case-folded token Levenshtein / max token count",
+      "length_deviation": "abs(whitespace-word length ratio - 1)"
+    }
+  },
+  "source_artifacts": {
+    "results/quality/fresh95_common_quality_v1/per_instance.jsonl": "935ad844fa0c189080b947b8d1d8959c685b30911aa7b6e34e71a4a8d7057513",
+    "results/quality/final_semantic_v1/entity/entity_scores_v1.jsonl": "ab06655c4dd5679eb36c7d16f4f915514ba530f2a4d69208afded72bc548c8eb",
+    "results/quality/final_semantic_v1/nli/nli_scores_v1.jsonl": "d0e4ab27af8f83c42b318fb83020ee2ccb2e4ed57fce3138591ad5be849c0e88",
+    "results/extension_oct2026_v1/dipper/friend_return_v1/friend_gpu_package_v1/outputs/fresh95/full/dipper_fresh95_full_final.jsonl": "7ff45d5472025ac7883a922590859dacdb5bc3d4a398c2789c1f995a05661622",
+    "results/extension_oct2026_v1/dipper/friend_return_v1/friend_gpu_package_v1/outputs/confirm48/full/dipper_confirm48_full_final.jsonl": "aee8bea9a3d9cf3aa6680c97558ac7164f12c1401128ae9c2bdb0cad9de32127",
+    "results/confirm48_v1/source_generations/confirm48_machine_sources_v1.jsonl": "d7d72918046b686f8c4554dd98b8036bcfb10ce18744bd0ced3216f01616b356",
+    "results/confirm48_v1/process/confirm48_selected_itt_v1.jsonl": "6e1beccdb415279fa6e4ff25a2f983f69fd725a2deee87ecb21936fb49aaf06e",
+    "results/final_analysis_v2/dipper_mpnet_cuda_v2_bs16_return/fresh95_dipper_mpnet_cuda_v2_bs16.jsonl": "0260c176c7e6e2489f45c8fd26999ea790047656b7be119d5f8f21d1e209664d",
+    "results/final_analysis_v2/dipper_mpnet_cuda_v2_bs16_return/confirm48_vanilla_hpcd_dipper_mpnet_cuda_v2_bs16.jsonl": "acbf991dc300d9d66860bd339929d380f83abe6d3b56a36f672f4dcd0a1f311f",
+    "results/final_analysis_v2/dipper_nli_v1/nli_scores_v1.jsonl": "4e45cad14b44616d37137a5d9635b77f647e02433853ddccc7e63e303dcf50fa",
+    "results/extension_oct2026_v1/dipper/fresh95_primary_t0_v1/summary.json": "1f9d2a6c90ff27b6500ff61cb9a29d858b8efa9d4f578f66b958481f92d06917",
+    "results/extension_oct2026_v1/dipper/confirm48_primary_t0_v1/summary.json": "d3b897f55096101abbfbbba42b550c3cbb15762a9a113547b3ea49c23893e7cf",
+    "code/hpcd/finalize_fresh95_surface_entity_selection_v1.py": "319fc639a7c705c4eeaf779e4ae50740fbd919b98bdfc0390c45ffebe9e78b0f",
+    "configs/hpcd/FINAL_METHOD_FREEZE.json": "da8610f8acbcc0e0c3c2be4132db63dd013493889559dc518ccc9315777ed035",
+    "results/detectors/fresh95_final_v1/inputs/fresh95_detector_input_v1.jsonl": "5e5bc0f60923b43675be252f6c3651e70338c46ac4ee1a6ba3d211e8f0cdfcb5",
+    "results/final_analysis_v1/asr/detector_asr_by_dataset_v1.csv": "d58cd674b623a840c6264cf06145e659ba2ee29f4c3a350c9b127a20782d48ba",
+    "results/extension_oct2026_v1/mage/mage_protocol_freeze_v1.json": "c553a202ad1ae87e902b0ce5d9ba992d6aea739f01650358a303787422a0d300"
+  },
+  "output_artifacts": {
+    "results/final_analysis_v2/dipper_quality/fresh95_dipper_quality_v1.jsonl": "e568b6fc779c39c4473e60c36d92357a7fe15f9781c5f7c939d35b3993d712a5",
+    "results/final_analysis_v2/dipper_quality/fresh95_dipper_quality_v1.csv": "ad67ac513920a0e8706173d32b0121609d5f63b6edce46ef3949d2ed378a15af",
+    "results/final_analysis_v2/dipper_quality/confirm48_dipper_quality_v1.jsonl": "c4f7949b05f1a70ee7244ddece67f03fee4ffe0d2e9777960d5c7b387714ff03",
+    "results/final_analysis_v2/dipper_quality/confirm48_dipper_quality_v1.csv": "78fdb5b8c9a81a22a3a2c9c66fa37201d3351e59875ebdd3045c3bb0bc618eda",
+    "results/final_analysis_v2/dipper_quality/quality_all_methods_v1.jsonl": "2dabc4d091af439eb0dbcf82685ea7a418f55de6a347fadcb8e9d38c18f19cf6",
+    "results/final_analysis_v2/dipper_quality/quality_pairwise_dipper_v1.csv": "d723eaee3a9783a34209f6fd5ca82448b4ab9f5c599e17b72cc6b7a57f6984fd",
+    "results/final_analysis_v2/dipper_quality/quality_pairwise_dipper_v1.md": "3b7a9a347cae85b4e99286376a5df133a48cb58c7f36422a5731b66787447daa",
+    "results/final_analysis_v2/dipper_quality/quality_by_domain_v1.csv": "9a047b08d93e881ccc5b5f1059a03fb97e2dd40deacbf2a61eb195d4022c1c2b",
+    "results/final_analysis_v2/dipper_quality/quality_by_generator_v1.csv": "8b2ce0733e7381156791c2c5d0f41bcc05a27b2a9cb14dcad61b6b625dbf6b8b",
+    "results/final_analysis_v2/tables/table_main_process_fidelity_with_dipper_v1.csv": "923dc501478be7e35dda5cef8c7ec0874e32ef491cbaf003733bdfdf0cdb7569",
+    "results/final_analysis_v2/tables/table_main_process_fidelity_with_dipper_v1.md": "b2b732ed3145bb7471a751907999c6b17e8edd0feec4185c4cdbd4acc823a6bd",
+    "results/final_analysis_v2/tables/table_confirm48_process_fidelity_with_dipper_v1.csv": "9a108256de874a311cdb827a15b5787f4954a0bf5d4a75a597d95decb451f58c",
+    "results/final_analysis_v2/tables/table_confirm48_process_fidelity_with_dipper_v1.md": "af755054fe0b1d595391c4fcbb1f483ece7ac8377a6686def06e73c23f068e24",
+    "results/final_analysis_v2/tables/table_cross_split_replication_v1.csv": "80334092a8b1283679040f5689d33be7b52188cd8c24f4a7493b0570c23d1d94",
+    "results/final_analysis_v2/tables/table_cross_split_replication_v1.md": "05fc18e9904a4d8d0d045a279d01e94fdb914592498bba3287cecebaeffe984f",
+    "results/final_analysis_v2/figure_data/figure_process_fidelity_with_dipper_v1.csv": "e664fd0457a3aaa24048d939e26952978409b45cc41cfbf969608715e81e1796",
+    "results/final_analysis_v2/paper_numbers_final_v1.json": "eadb08ef13ff13495096b5af156b74579cfa5c0fe97a54f3786b4f69c43246f3",
+    "results/final_analysis_v2/paper_numbers_final_v1.csv": "fbc96173319d20888939bdf78e7b301f3b8e4fd7512504b83f946fb08c37553a",
+    "results/final_analysis_v2/paper_numbers_final_v1.md": "8fcac625b6606967d4fbdb94abf8d70367fbdea565ba92ca4ede59b543204c13",
+    "results/final_analysis_v2/consistency_audit_final_v1.md": "66fffc6fd5dd84aa1e0e35162cf623c303dd1b1cdb797afda2794820d32d6f41",
+    "results/final_analysis_v2/claim_audit_final_v1.md": "c78ca95b370b471b1155eb09b6216603059647d50808f50ebd6bf4dab788b276",
+    "results/final_analysis_v2/FINAL_PAPER_HANDOFF.md": "b3ae68e669bcd99efc8c6a50ee44155f9ffe6e1e4df9f9133234d6d15cc9bdb7",
+    "code/final_analysis_v2/finalize_experimental_package_v1.py": "f9d6ac6c76df2a51e081e261801fea2c82e6476fa180b77a1097afbf84996a43"
+  },
+  "stop_condition": {
+    "required_remaining": "NONE",
+    "detector_work": "CLOSED",
+    "generation": "CLOSED",
+    "new_models": "CLOSED",
+    "next_stage": "MANUSCRIPT_FINALIZATION"
+  }
+}
