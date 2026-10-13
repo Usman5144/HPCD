@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "model": "results/hjtm/independent_qwen15b_hjtm_v1/hjtm_final_v1.json",
+  "model_sha256": "c9525988e9fb6e134329fd343219522b9e7d1ac3069d91c029f1eccb1692afab",
+  "boundaries": "results/hjtm/independent_qwen15b_hjtm_v1/state_boundaries.json",
+  "boundaries_sha256": "5a89daa6d7cbbd63e2f2addc323da9d300e15d75c3bacbfd2df0d44db909865e",
+  "human_scores": "results/hjtm/independent_qwen15b_hjtm_v1/human_fullmodel_nll.jsonl",
+  "human_scores_sha256": "83e49b168787bd1fcd844294441e23bd646488547dd9bf02c8cceb5bba8a4606",
+  "T1B_manifest_sha256": "94f21f24b5ba80e278260c0cef54639c66c358017178ab452f5b7de7f797a5e6",
+  "human_documents": 251,
+  "human_tokens": 90665,
+  "orders": [
+    0,
+    1,
+    2
+  ],
+  "B": 6,
+  "E": 3,
+  "alpha": 1.0
+}

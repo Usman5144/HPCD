@@ -1,0 +1,4 @@
+metric,calibration_n,target_fpr,decision_rule,threshold,realized_calibration_fpr,max_allowed_false_positives,actual_false_positives
+Fast-DetectGPT,280,0.05,analysis_score > threshold,1.79150390625,0.05,14,14
+RADAR,280,0.05,analysis_score > threshold,0.885047048330307,0.05,14,14
+SurpMark,280,0.05,analysis_score > threshold,1.4313658123408482e-06,0.05,14,14

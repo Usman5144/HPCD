@@ -1,0 +1,36 @@
+{
+  "name": "MAGE frozen extension protocol v1",
+  "model": "local released MAGE Longformer checkpoint",
+  "model_dir": "models/MAGE",
+  "official_repo": "external/extension_oct2026_v1/MAGE-main",
+  "input": "results/detectors/fresh95_final_v1/inputs/fresh95_detector_input_v1.jsonl",
+  "input_sha256": "5e5bc0f60923b43675be252f6c3651e70338c46ac4ee1a6ba3d211e8f0cdfcb5",
+  "n_rows": 523,
+  "preprocessing": "official deployment.utils.preprocess",
+  "clean_text_version": "0.6.0",
+  "ftfy_version": "6.1.3",
+  "unidecode_version": "1.4.0",
+  "device": "cpu",
+  "tokenization": "tokenizer(preprocessed_text, truncation=False)",
+  "max_safe_input_tokens": 4096,
+  "official_label_semantics": {
+    "0": "machine-generated",
+    "1": "human-written"
+  },
+  "released_id2label": {
+    "0": 0,
+    "1": 1
+  },
+  "released_label2id": {
+    "0": 0,
+    "1": 1
+  },
+  "compatibility_normalization": "id2label/label2id normalized in memory only for current Transformers; model files unchanged",
+  "official_detection_score": "-logit0",
+  "official_threshold": -3.08583984375,
+  "official_machine_rule": "-logit0 < -3.08583984375",
+  "evaluation_machine_score": "logit0",
+  "evaluation_score_orientation": "higher = more machine-like",
+  "truncation": false,
+  "selection_or_tuning_on_results": false
+}

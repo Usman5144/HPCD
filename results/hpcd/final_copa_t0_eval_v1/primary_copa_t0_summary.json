@@ -1,0 +1,219 @@
+{
+  "status": "COMPLETE",
+  "stage": "Frozen CoPA-3B primary Qwen2.5-3B T0 evaluation",
+  "scientific_label": "CoPA decoding with Qwen2.5-3B-Instruct (matched-backbone adaptation of the authors' released implementation)",
+  "evaluation_only": true,
+  "regression_gate": "BYTE_IDENTICAL_PASS",
+  "n_instances": 95,
+  "n_base_clusters": 48,
+  "absolute_T0": {
+    "original": {
+      "n": 95,
+      "mean_T0": 1.3430302946313775,
+      "median_T0": 1.0404626045074477
+    },
+    "vanilla_t10": {
+      "n": 95,
+      "mean_T0": 1.1108402625917018,
+      "median_T0": 0.955925775032021
+    },
+    "vanilla_t11": {
+      "n": 95,
+      "mean_T0": 1.0307684220205708,
+      "median_T0": 0.8705555096953803
+    },
+    "copa_3b": {
+      "n": 95,
+      "mean_T0": 1.028039167977061,
+      "median_T0": 0.8211432476778099
+    },
+    "hpcd_n0": {
+      "n": 95,
+      "mean_T0": 0.7306144558207776,
+      "median_T0": 0.5620342087396129
+    }
+  },
+  "pairwise": {
+    "copa_3b - original": {
+      "n_instances": 95,
+      "instance_mean_delta": -0.31499112665431667,
+      "instance_median_delta": -0.18167128380286446,
+      "improved": 53,
+      "worsened": 42,
+      "ties": 0,
+      "cluster_bootstrap": {
+        "point": -0.3061872492045647,
+        "ci95": [
+          -0.5777870051938512,
+          -0.038779588017339335
+        ],
+        "p_effect_lt_0": 0.98768,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027
+      }
+    },
+    "copa_3b - vanilla_t10": {
+      "n_instances": 95,
+      "instance_mean_delta": -0.08280109461464119,
+      "instance_median_delta": -0.049790036670692095,
+      "improved": 52,
+      "worsened": 43,
+      "ties": 0,
+      "cluster_bootstrap": {
+        "point": -0.07641586333196924,
+        "ci95": [
+          -0.26164139945482595,
+          0.11396991965999811
+        ],
+        "p_effect_lt_0": 0.78854,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027
+      }
+    },
+    "copa_3b - vanilla_t11": {
+      "n_instances": 95,
+      "instance_mean_delta": -0.002729254043510067,
+      "instance_median_delta": 0.000155053039924552,
+      "improved": 47,
+      "worsened": 48,
+      "ties": 0,
+      "cluster_bootstrap": {
+        "point": 0.002821895566545949,
+        "ci95": [
+          -0.16351738324070483,
+          0.17361814382437596
+        ],
+        "p_effect_lt_0": 0.49264,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027
+      }
+    },
+    "copa_3b - hpcd_n0": {
+      "n_instances": 95,
+      "instance_mean_delta": 0.2974247121562834,
+      "instance_median_delta": 0.24667732825506147,
+      "improved": 39,
+      "worsened": 56,
+      "ties": 0,
+      "cluster_bootstrap": {
+        "point": 0.29984925795175815,
+        "ci95": [
+          0.10961788882234419,
+          0.4900679579302902
+        ],
+        "p_effect_lt_0": 0.00108,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027
+      }
+    },
+    "hpcd_n0 - copa_3b": {
+      "n_instances": 95,
+      "instance_mean_delta": -0.2974247121562834,
+      "instance_median_delta": -0.24667732825506147,
+      "improved": 56,
+      "worsened": 39,
+      "ties": 0,
+      "cluster_bootstrap": {
+        "point": -0.29984925795175815,
+        "ci95": [
+          -0.4900679579302901,
+          -0.10961788882234413
+        ],
+        "p_effect_lt_0": 0.99892,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027
+      }
+    }
+  },
+  "subgroups": {
+    "copa_3b - vanilla_t10": {
+      "by_source_generator": {
+        "deepseek_r1_qwen7b_prefill": {
+          "n": 47,
+          "mean_delta": 0.09581749760809177
+        },
+        "qwen25_3b": {
+          "n": 48,
+          "mean_delta": -0.25769846616606723
+        }
+      },
+      "by_domain": {
+        "news": {
+          "n_base_clusters": 12,
+          "mean_cluster_delta": 0.37215474510462226
+        },
+        "reddit": {
+          "n_base_clusters": 12,
+          "mean_cluster_delta": -0.5174551619382627
+        },
+        "reviews": {
+          "n_base_clusters": 12,
+          "mean_cluster_delta": -0.37242192087486625
+        },
+        "wiki": {
+          "n_base_clusters": 12,
+          "mean_cluster_delta": 0.21205888438062978
+        }
+      }
+    },
+    "copa_3b - hpcd_n0": {
+      "by_source_generator": {
+        "deepseek_r1_qwen7b_prefill": {
+          "n": 47,
+          "mean_delta": 0.5940981319856272
+        },
+        "qwen25_3b": {
+          "n": 48,
+          "mean_delta": 0.006931988573384072
+        }
+      },
+      "by_domain": {
+        "news": {
+          "n_base_clusters": 12,
+          "mean_cluster_delta": 0.8557939733316555
+        },
+        "reddit": {
+          "n_base_clusters": 12,
+          "mean_cluster_delta": -0.11574415114373247
+        },
+        "reviews": {
+          "n_base_clusters": 12,
+          "mean_cluster_delta": -0.016286754145421623
+        },
+        "wiki": {
+          "n_base_clusters": 12,
+          "mean_cluster_delta": 0.4756339637645311
+        }
+      }
+    }
+  },
+  "coverage": {
+    "original": {
+      "coverage": 1.0
+    },
+    "copa_3b": {
+      "coverage": 1.0
+    },
+    "vanilla_t10": {
+      "rewrites": 64,
+      "abstentions": 31,
+      "coverage": 0.6736842105263158
+    },
+    "vanilla_t11": {
+      "rewrites": 65,
+      "abstentions": 30,
+      "coverage": 0.6842105263157895
+    },
+    "hpcd_n0": {
+      "rewrites": 63,
+      "abstentions": 32,
+      "coverage": 0.6631578947368421
+    }
+  },
+  "sign_convention": "Negative A-B delta means method A is closer to the human T0 typicality target.",
+  "B": 50000,
+  "bootstrap_seed": 2027,
+  "device": "mps",
+  "dtype": "torch.float16",
+  "runtime_seconds": 263.76561307907104
+}

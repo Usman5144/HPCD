@@ -1,0 +1,904 @@
+{
+  "status": "FINAL_FROZEN_PAPER_NUMBERS",
+  "definitions": {
+    "T0": "lower is more human-process-typical",
+    "quality_higher_better": [
+      "MPNet",
+      "Bi-NLI",
+      "Entity",
+      "Num/Date"
+    ],
+    "length_deviation": "mean instance-level abs(word_length_ratio - 1)",
+    "quality_inference_unit": "RAID base ID",
+    "quality_bootstrap": {
+      "type": "domain-stratified cluster bootstrap",
+      "B": 50000,
+      "seed": 2027,
+      "within_base": "average available generator-specific paired deltas first"
+    }
+  },
+  "primary_fresh95": {
+    "vanilla_T0": 1.11084,
+    "hpcd_T0": 0.730614,
+    "hpcd_minus_vanilla_cluster_delta": -0.3762651213,
+    "ci95": [
+      -0.5278136362,
+      -0.229011683
+    ],
+    "directional_probability_hpcd_lower": 1.0
+  },
+  "confirm48": {
+    "original_T0": 1.401584923221229,
+    "vanilla_T0": 1.2194043123127005,
+    "dipper_T0": 1.039241,
+    "hpcd_T0": 0.77451596574869,
+    "hpcd_minus_vanilla_instance_delta": -0.4448883465640107,
+    "hpcd_minus_vanilla_cluster_delta": -0.4441082439930872,
+    "hpcd_minus_vanilla_ci95": [
+      -0.5911256659667654,
+      -0.3040240408077499
+    ],
+    "hpcd_minus_vanilla_p_lower": 1.0,
+    "hpcd_minus_vanilla_domain_descriptive": {
+      "news": -0.5552027570445893,
+      "reddit": -0.5513477554753637,
+      "reviews": -0.43838744091875564,
+      "wiki": -0.23149502253363993
+    },
+    "hpcd_minus_vanilla_generator_descriptive": {
+      "DeepSeek": -0.5346343292050885,
+      "Qwen": -0.3532328749305699
+    }
+  },
+  "quality": {
+    "fresh95": [
+      {
+        "Method": "Original",
+        "T0": 1.34303,
+        "MPNet": 0.9999999836871498,
+        "Bi-NLI": null,
+        "Entity": 1.0,
+        "Num/Date": 1.0,
+        "Edit": 0.0,
+        "Length Dev.": 0.0
+      },
+      {
+        "Method": "Vanilla",
+        "T0": 1.11084,
+        "MPNet": 0.9761320703908016,
+        "Bi-NLI": 0.9760026967915653,
+        "Entity": 1.0,
+        "Num/Date": 1.0,
+        "Edit": 0.4076148854772956,
+        "Length Dev.": 0.1065457584516323
+      },
+      {
+        "Method": "CoPA-3B",
+        "T0": 1.028039,
+        "MPNet": 0.8531455541911878,
+        "Bi-NLI": 0.8645375909926993,
+        "Entity": 0.7214506344135975,
+        "Num/Date": 0.6136363636363636,
+        "Edit": 0.735967708927088,
+        "Length Dev.": 0.24974919471385315
+      },
+      {
+        "Method": "DIPPER",
+        "T0": 1.017539,
+        "MPNet": 0.8649406627604835,
+        "Bi-NLI": 0.8365679576013966,
+        "Entity": 0.6302900117714932,
+        "Num/Date": 0.38636363636363635,
+        "Edit": 0.7908627535847973,
+        "Length Dev.": 0.14352664044466754
+      },
+      {
+        "Method": "HPCD",
+        "T0": 0.730614,
+        "MPNet": 0.9753603226260135,
+        "Bi-NLI": 0.9723538730345758,
+        "Entity": 1.0,
+        "Num/Date": 1.0,
+        "Edit": 0.4104562502730913,
+        "Length Dev.": 0.10775191645693964
+      }
+    ],
+    "confirm48": [
+      {
+        "Method": "Original",
+        "T0": 1.401584923221229,
+        "MPNet": 1.0,
+        "Bi-NLI": null,
+        "Entity": 0.9878048780487805,
+        "Num/Date": 1.0,
+        "Edit": 0.0,
+        "Length Dev.": 0.0
+      },
+      {
+        "Method": "Vanilla",
+        "T0": 1.2194043123127005,
+        "MPNet": 0.9765788153598183,
+        "Bi-NLI": 0.9739505462316673,
+        "Entity": 0.9878048780487805,
+        "Num/Date": 1.0,
+        "Edit": 0.4171453342946133,
+        "Length Dev.": 0.08212767352655877
+      },
+      {
+        "Method": "DIPPER",
+        "T0": 1.039241,
+        "MPNet": 0.8792775147839597,
+        "Bi-NLI": 0.7766300766290807,
+        "Entity": 0.6692854156528363,
+        "Num/Date": 0.4883720930232558,
+        "Edit": 0.7883745224082863,
+        "Length Dev.": 0.159105274486215
+      },
+      {
+        "Method": "HPCD",
+        "T0": 0.77451596574869,
+        "MPNet": 0.9730712100079185,
+        "Bi-NLI": 0.9604914327051902,
+        "Entity": 0.9878048780487805,
+        "Num/Date": 1.0,
+        "Edit": 0.4397909529477278,
+        "Length Dev.": 0.09114452754120117
+      }
+    ],
+    "dipper_pairwise": [
+      {
+        "method_a": "DIPPER",
+        "method_b": "Vanilla",
+        "contrast": "DIPPER - Vanilla",
+        "metric": "mpnet",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": -0.11090069077908993,
+        "ci_low": -0.1320589467107008,
+        "ci_high": -0.09103282041226823,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "Vanilla",
+        "contrast": "DIPPER - Vanilla",
+        "metric": "nli_min",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": -0.14370791569685207,
+        "ci_low": -0.1935811454557852,
+        "ci_high": -0.09529337144277612,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "Vanilla",
+        "contrast": "DIPPER - Vanilla",
+        "metric": "entity_preservation",
+        "n_instances": 81,
+        "n_base_ids": 42,
+        "mean_delta": -0.3785298696012982,
+        "ci_low": -0.432986575263361,
+        "ci_high": -0.3255605505605506,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "Vanilla",
+        "contrast": "DIPPER - Vanilla",
+        "metric": "numdate_preservation",
+        "n_instances": 44,
+        "n_base_ids": 27,
+        "mean_delta": -0.6111111111111112,
+        "ci_low": -0.7407407407407407,
+        "ci_high": -0.46296296296296297,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "Vanilla",
+        "contrast": "DIPPER - Vanilla",
+        "metric": "edit_fraction",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": 0.38695834963026515,
+        "ci_low": 0.33019952671098485,
+        "ci_high": 0.4457799726604936,
+        "p_delta_lt_0": 0.0,
+        "p_delta_gt_0": 1.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "Vanilla",
+        "contrast": "DIPPER - Vanilla",
+        "metric": "length_deviation",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": 0.03738757480365845,
+        "ci_low": 0.009550508937169211,
+        "ci_high": 0.06471052888895013,
+        "p_delta_lt_0": 0.0045,
+        "p_delta_gt_0": 0.9955,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "CoPA-3B",
+        "contrast": "DIPPER - CoPA-3B",
+        "metric": "mpnet",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": 0.011923320591449738,
+        "ci_low": -0.012142611993476748,
+        "ci_high": 0.03517756848596037,
+        "p_delta_lt_0": 0.1631,
+        "p_delta_gt_0": 0.8369,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "CoPA-3B",
+        "contrast": "DIPPER - CoPA-3B",
+        "metric": "nli_min",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": -0.02733278046028192,
+        "ci_low": -0.08301309112844936,
+        "ci_high": 0.026296592431929347,
+        "p_delta_lt_0": 0.83496,
+        "p_delta_gt_0": 0.16504,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "CoPA-3B",
+        "contrast": "DIPPER - CoPA-3B",
+        "metric": "entity_preservation",
+        "n_instances": 81,
+        "n_base_ids": 42,
+        "mean_delta": -0.09028583850012423,
+        "ci_low": -0.16674626795162512,
+        "ci_high": -0.013380153246224675,
+        "p_delta_lt_0": 0.98928,
+        "p_delta_gt_0": 0.01072,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "CoPA-3B",
+        "contrast": "DIPPER - CoPA-3B",
+        "metric": "numdate_preservation",
+        "n_instances": 44,
+        "n_base_ids": 27,
+        "mean_delta": -0.24074074074074073,
+        "ci_low": -0.4074074074074074,
+        "ci_high": -0.07407407407407407,
+        "p_delta_lt_0": 0.99558,
+        "p_delta_gt_0": 0.0023,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "CoPA-3B",
+        "contrast": "DIPPER - CoPA-3B",
+        "metric": "edit_fraction",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": 0.05453000374070501,
+        "ci_low": 0.03286034271269961,
+        "ci_high": 0.07577878874482251,
+        "p_delta_lt_0": 0.0,
+        "p_delta_gt_0": 1.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "CoPA-3B",
+        "contrast": "DIPPER - CoPA-3B",
+        "metric": "length_deviation",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": -0.10874058199944688,
+        "ci_low": -0.14621432498571688,
+        "ci_high": -0.07141606325360955,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "HPCD",
+        "contrast": "DIPPER - HPCD",
+        "metric": "mpnet",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": -0.1101369820535183,
+        "ci_low": -0.13163269399665295,
+        "ci_high": -0.09002665402367711,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "HPCD",
+        "contrast": "DIPPER - HPCD",
+        "metric": "nli_min",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": -0.14009710052066437,
+        "ci_low": -0.18970241836225105,
+        "ci_high": -0.09220466384171871,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "HPCD",
+        "contrast": "DIPPER - HPCD",
+        "metric": "entity_preservation",
+        "n_instances": 81,
+        "n_base_ids": 42,
+        "mean_delta": -0.3785298696012982,
+        "ci_low": -0.432986575263361,
+        "ci_high": -0.3255605505605506,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "HPCD",
+        "contrast": "DIPPER - HPCD",
+        "metric": "numdate_preservation",
+        "n_instances": 44,
+        "n_base_ids": 27,
+        "mean_delta": -0.6111111111111112,
+        "ci_low": -0.7407407407407407,
+        "ci_high": -0.46296296296296297,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "HPCD",
+        "contrast": "DIPPER - HPCD",
+        "metric": "edit_fraction",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": 0.3841465823844256,
+        "ci_low": 0.32854245427035866,
+        "ci_high": 0.4405751232166281,
+        "p_delta_lt_0": 0.0,
+        "p_delta_gt_0": 1.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "HPCD",
+        "contrast": "DIPPER - HPCD",
+        "metric": "length_deviation",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": 0.03619398094423972,
+        "ci_low": 0.00397430489132611,
+        "ci_high": 0.06708527561197487,
+        "p_delta_lt_0": 0.0141,
+        "p_delta_gt_0": 0.9859,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "Fresh95"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "Vanilla",
+        "contrast": "DIPPER - Vanilla",
+        "metric": "mpnet",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": -0.09685893232623737,
+        "ci_low": -0.12292343651254972,
+        "ci_high": -0.07450553515615561,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "CONFIRM48"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "Vanilla",
+        "contrast": "DIPPER - Vanilla",
+        "metric": "nli_min",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": -0.1960984050254071,
+        "ci_low": -0.2548575288823607,
+        "ci_high": -0.1385503113387082,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "CONFIRM48"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "Vanilla",
+        "contrast": "DIPPER - Vanilla",
+        "metric": "entity_preservation",
+        "n_instances": 82,
+        "n_base_ids": 44,
+        "mean_delta": -0.3138476808689481,
+        "ci_low": -0.38312902100088986,
+        "ci_high": -0.24833925517793023,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "CONFIRM48"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "Vanilla",
+        "contrast": "DIPPER - Vanilla",
+        "metric": "numdate_preservation",
+        "n_instances": 43,
+        "n_base_ids": 31,
+        "mean_delta": -0.4838709677419355,
+        "ci_low": -0.6451612903225806,
+        "ci_high": -0.3225806451612903,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "CONFIRM48"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "Vanilla",
+        "contrast": "DIPPER - Vanilla",
+        "metric": "edit_fraction",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": 0.37022228484153524,
+        "ci_low": 0.31976377808100065,
+        "ci_high": 0.4217825777221722,
+        "p_delta_lt_0": 0.0,
+        "p_delta_gt_0": 1.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "CONFIRM48"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "Vanilla",
+        "contrast": "DIPPER - Vanilla",
+        "metric": "length_deviation",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": 0.07531394039810109,
+        "ci_low": 0.03891588056531827,
+        "ci_high": 0.10997490550340115,
+        "p_delta_lt_0": 8e-05,
+        "p_delta_gt_0": 0.99992,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "CONFIRM48"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "HPCD",
+        "contrast": "DIPPER - HPCD",
+        "metric": "mpnet",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": -0.09384014581640561,
+        "ci_low": -0.11995700278008978,
+        "ci_high": -0.07121519347031911,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "CONFIRM48"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "HPCD",
+        "contrast": "DIPPER - HPCD",
+        "metric": "nli_min",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": -0.18260205717387543,
+        "ci_low": -0.24241495794503154,
+        "ci_high": -0.12499611371019477,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "CONFIRM48"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "HPCD",
+        "contrast": "DIPPER - HPCD",
+        "metric": "entity_preservation",
+        "n_instances": 82,
+        "n_base_ids": 44,
+        "mean_delta": -0.3138476808689481,
+        "ci_low": -0.38312902100088986,
+        "ci_high": -0.24833925517793023,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "CONFIRM48"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "HPCD",
+        "contrast": "DIPPER - HPCD",
+        "metric": "numdate_preservation",
+        "n_instances": 43,
+        "n_base_ids": 31,
+        "mean_delta": -0.4838709677419355,
+        "ci_low": -0.6451612903225806,
+        "ci_high": -0.3225806451612903,
+        "p_delta_lt_0": 1.0,
+        "p_delta_gt_0": 0.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "CONFIRM48"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "HPCD",
+        "contrast": "DIPPER - HPCD",
+        "metric": "edit_fraction",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": 0.35380364668137537,
+        "ci_low": 0.30197427343386657,
+        "ci_high": 0.40582096490552316,
+        "p_delta_lt_0": 0.0,
+        "p_delta_gt_0": 1.0,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "CONFIRM48"
+      },
+      {
+        "method_a": "DIPPER",
+        "method_b": "HPCD",
+        "contrast": "DIPPER - HPCD",
+        "metric": "length_deviation",
+        "n_instances": 95,
+        "n_base_ids": 48,
+        "mean_delta": 0.06725282249766996,
+        "ci_low": 0.03170569514627692,
+        "ci_high": 0.10105173269239283,
+        "p_delta_lt_0": 0.00014,
+        "p_delta_gt_0": 0.99986,
+        "bootstrap_B": 50000,
+        "bootstrap_seed": 2027,
+        "unit": "RAID base ID; generator deltas averaged within base first",
+        "bootstrap": "domain-stratified percentile cluster bootstrap",
+        "split": "CONFIRM48"
+      }
+    ]
+  },
+  "dipper": {
+    "fresh95": {
+      "T0": 1.017539,
+      "minus_original_cluster_delta": -0.32287237432161003,
+      "minus_original_ci95": [
+        -0.5691396531486004,
+        -0.08025341177205093
+      ],
+      "minus_original_p_lt0": 0.9955,
+      "minus_vanilla_cluster_delta": -0.0931009884490145,
+      "minus_vanilla_ci95": [
+        -0.2721211149449428,
+        0.10541330801229326
+      ],
+      "minus_vanilla_p_lt0": 0.8338,
+      "minus_copa_cluster_delta": -0.016685125117045285,
+      "minus_copa_ci95": [
+        -0.21743819499484862,
+        0.18875977527008006
+      ],
+      "minus_hpcd_cluster_delta": 0.28316413283471287,
+      "minus_hpcd_ci95": [
+        0.11258575445584257,
+        0.46502754166693505
+      ],
+      "minus_hpcd_p_lt0": 0.00024,
+      "minus_hpcd_by_generator_descriptive": {
+        "DeepSeek": 0.4264275872925397,
+        "Qwen": 0.1503275592058312
+      },
+      "minus_hpcd_by_domain_descriptive": {
+        "news": 0.4557057079165481,
+        "reddit": 0.5437358718113209,
+        "reviews": 0.08549056091537827,
+        "wiki": 0.047724390695604406
+      }
+    },
+    "confirm48": {
+      "T0": 1.039241,
+      "minus_original_cluster_delta": -0.3666995042857484,
+      "minus_original_ci95": [
+        -0.614156251690363,
+        -0.11651357351827103
+      ],
+      "minus_vanilla_cluster_delta": -0.19027075911330268,
+      "minus_vanilla_ci95": [
+        -0.45625210591786647,
+        0.06747454946391972
+      ],
+      "minus_hpcd_cluster_delta": 0.25383748487978447,
+      "minus_hpcd_ci95": [
+        -0.016273100936980173,
+        0.5305281998871768
+      ],
+      "minus_hpcd_p_lt0": 0.03256,
+      "minus_hpcd_by_domain_descriptive": {
+        "news": 0.38266237060954184,
+        "reddit": 0.6867365201418196,
+        "reviews": -0.18962449936792838,
+        "wiki": 0.135575548135705
+      }
+    }
+  },
+  "copa": {
+    "fresh95_T0": 1.028039,
+    "matched_backbone": "Qwen2.5-3B",
+    "lambda": 0.5,
+    "alpha": 1e-05
+  },
+  "temperature_control": {
+    "temperature": 1.1,
+    "fresh95_T0": 1.030768,
+    "fresh95_MPNet": 0.9725,
+    "fresh95_NLI_min": 0.9765,
+    "fresh95_edit": 0.4417
+  },
+  "detectors": {
+    "note": "secondary transfer evidence; no detector feedback was used by HPCD",
+    "Fast_DetectGPT": {
+      "Original": {
+        "AUROC": 0.9689,
+        "TPR5": 0.8632
+      },
+      "Vanilla": {
+        "AUROC": 0.8164,
+        "TPR5": 0.5474,
+        "ASR5": 0.3659
+      },
+      "Temperature_Control": {
+        "AUROC": 0.7325,
+        "TPR5": 0.4105,
+        "ASR5": 0.5244
+      },
+      "CoPA_3B": {
+        "AUROC": 0.7059,
+        "TPR5": 0.2,
+        "ASR5": 0.7805
+      },
+      "HPCD": {
+        "AUROC": 0.8416,
+        "TPR5": 0.6,
+        "ASR5": 0.3171
+      }
+    },
+    "RADAR": {
+      "Original": {
+        "AUROC": 0.9934,
+        "TPR5": 0.8105
+      },
+      "Vanilla": {
+        "AUROC": 0.9862,
+        "TPR5": 0.7474,
+        "ASR5": 0.0779
+      },
+      "Temperature_Control": {
+        "AUROC": 0.982,
+        "TPR5": 0.6842,
+        "ASR5": 0.1558
+      },
+      "CoPA_3B": {
+        "AUROC": 0.9822,
+        "TPR5": 0.7158,
+        "ASR5": 0.1948
+      },
+      "HPCD": {
+        "AUROC": 0.9877,
+        "TPR5": 0.7158,
+        "ASR5": 0.1299
+      }
+    },
+    "SurpMark": {
+      "Original": {
+        "AUROC": 0.9292,
+        "TPR5": 0.6421
+      },
+      "Vanilla": {
+        "AUROC": 0.7842,
+        "TPR5": 0.2526,
+        "ASR5": 0.623
+      },
+      "Temperature_Control": {
+        "AUROC": 0.6849,
+        "TPR5": 0.2211,
+        "ASR5": 0.6557
+      },
+      "CoPA_3B": {
+        "AUROC": 0.7116,
+        "TPR5": 0.0526,
+        "ASR5": 0.918
+      },
+      "HPCD": {
+        "AUROC": 0.7599,
+        "TPR5": 0.2211,
+        "ASR5": 0.6557
+      }
+    },
+    "thresholds_global_5pct_FPR": {
+      "Fast_DetectGPT": 1.79150391,
+      "RADAR": 0.88504705,
+      "SurpMark": 1.43e-06,
+      "calibration_humans": 280,
+      "false_positives_each": 14
+    },
+    "hpcd_minus_original_continuous_score_shift": {
+      "Fast_DetectGPT": -1.951,
+      "RADAR": -0.0448,
+      "SurpMark": -0.000427,
+      "LogLikelihood": -0.425,
+      "LogRank": -0.297,
+      "DetectLLM_LRR": -0.165
+    }
+  },
+  "mage": {
+    "status": "FROZEN_COMPLETE",
+    "hpcd_minus_original_machine_score_delta": -0.1824,
+    "ci95": [
+      -0.4163,
+      -0.0106
+    ],
+    "hpcd_TPR5": 0.9684,
+    "hpcd_ASR5": 0.0316,
+    "interpretation": "HPCD produces a humanward continuous-score shift, but MAGE remains highly effective at the fixed 5% FPR threshold."
+  },
+  "independent_evaluator": {
+    "model": "Qwen2.5-1.5B",
+    "DEV_hpcd_minus_vanilla": -0.129,
+    "DEV_ci95": [
+      -0.199,
+      -0.059
+    ],
+    "Fresh95_hpcd_minus_vanilla": -0.1064267253,
+    "Fresh95_ci95": [
+      -0.2706330091,
+      0.054106948
+    ],
+    "Fresh95_directional_probability": 0.90134
+  },
+  "coverage": {
+    "Fresh95": {
+      "n_instances": 95,
+      "Vanilla_rewrite": 64,
+      "Vanilla_fallback": 31,
+      "HPCD_rewrite": 63,
+      "HPCD_fallback": 32
+    },
+    "CONFIRM48": {
+      "n_instances": 95,
+      "Vanilla_rewrite": 67,
+      "Vanilla_fallback": 28,
+      "HPCD_rewrite": 69,
+      "HPCD_fallback": 26
+    }
+  }
+}

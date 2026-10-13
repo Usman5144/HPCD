@@ -1,0 +1,70 @@
+{
+  "status": "FROZEN_COMPLETE",
+  "experiment": "CONFIRM48 DIPPER extension",
+  "method": "DIPPER L60/O60",
+  "scientific_role": "post-primary-freeze external paraphrasing baseline",
+  "n_instances": 95,
+  "n_base_clusters": 48,
+  "absolute_mean_T0": {
+    "original": 1.401584923221229,
+    "vanilla_t10": 1.2194043123127005,
+    "dipper_l60_o60": 1.0392409960907503,
+    "hpcd_n0": 0.77451596574869
+  },
+  "ordering": "HPCD < DIPPER < Vanilla < Original",
+  "dipper_vs_original": {
+    "cluster_delta": -0.3666995042857484,
+    "ci95": [
+      -0.614156251690363,
+      -0.11651357351827103
+    ],
+    "p_effect_lt_0": 0.99792,
+    "interpretation": "DIPPER has lower T0 than Original and the 95% base-cluster bootstrap CI excludes zero."
+  },
+  "dipper_vs_vanilla": {
+    "cluster_delta": -0.19027075911330268,
+    "ci95": [
+      -0.45625210591786647,
+      0.06747454946391972
+    ],
+    "p_effect_lt_0": 0.92184,
+    "interpretation": "DIPPER has a favorable point estimate relative to Vanilla, but the 95% CI includes zero."
+  },
+  "dipper_vs_hpcd": {
+    "cluster_delta": 0.25383748487978447,
+    "ci95": [
+      -0.016273100936980173,
+      0.5305281998871768
+    ],
+    "p_effect_lt_0": 0.03256,
+    "interpretation": "The point estimate favors HPCD and matches the Fresh95 direction, but the CONFIRM48 95% CI narrowly includes zero."
+  },
+  "external_baseline_replication_status": "DIRECTIONALLY_HPCD_LOWER_INCONCLUSIVE",
+  "cross_split_conclusion": "Both Fresh95 and CONFIRM48 reproduce the absolute ordering HPCD < DIPPER < Vanilla < Original. Fresh95 clearly separates HPCD from DIPPER; CONFIRM48 shows a similarly sized point estimate favoring HPCD but its 95% CI narrowly crosses zero.",
+  "subgroup_claim_rule": "Domain and generator subgroup effects remain descriptive only.",
+  "primary_endpoint_firewall": {
+    "confirm48_primary_frozen_before_dipper": true,
+    "confirm48_primary_freeze_sha256": "b1f941918340ba5ec80d82316aef5d973cc48c89d7bf6f905f6bc73841b5d3a4"
+  },
+  "artifacts": {
+    "dipper_output_sha256": "aee8bea9a3d9cf3aa6680c97558ac7164f12c1401128ae9c2bdb0cad9de32127",
+    "return_freeze_sha256": "da6a1ce6de6f8f6aa8d335dea3ac7d1e289bb9d3fccf21453b635aea74d7d32d",
+    "cache_sha256": "3e325960f190e928e96660416de03171ebef48a90a251239e6afe637f0f6da9c",
+    "new_scores_sha256": "cc030b2041b15af83f29e5300a1a3d6c2bfa3ad99707fb03099c9050e7d62c4b",
+    "all_scores_sha256": "17eaaab51aec94c13d3d8d4e34b7d4332f9872d395fcd70a80561fa4fd3c1a22",
+    "pairs_sha256": "517d3a7c5b301821b66f1cae7674bc4857cddf2299d084aa733bc812fef4d115",
+    "clusters_sha256": "afda6a53622c8246a38cffca859df9ac387fbef8a18a141b0ee48ddce1bc8149",
+    "summary_sha256": "d3b897f55096101abbfbbba42b550c3cbb15762a9a113547b3ea49c23893e7cf",
+    "runner_sha256": "e002698f37c2670b1c007b330ddc5dbd9a4b05c62fde1fd0ba857aee3b83c753"
+  },
+  "evaluation_locked": true,
+  "post_freeze_rules": {
+    "regenerate_dipper": false,
+    "retune_dipper": false,
+    "filter_dipper": false,
+    "select_dipper_by_t0": false,
+    "select_dipper_by_quality": false,
+    "select_dipper_by_detector": false,
+    "modify_confirm48_primary": false
+  }
+}

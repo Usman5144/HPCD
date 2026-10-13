@@ -1,0 +1,21 @@
+{
+  "timestamp_unix": 1791376648.40342,
+  "historical_scorer": "<LOCAL_HOME>/COLING27_HUMANIZATION/code/hpcd/run_fresh95_primary_t0_v1.py",
+  "historical_scorer_sha256": "5321752a458e060591623acf62ec14ab6a2be0c94d7033bd9d742a80e000953d",
+  "source_sha256": "eaccc088b2120879173507d5dd40e48a97e5a05a6ca1de06b5379241db9e6b77",
+  "selected_outputs_sha256": "ed203b1b948267a201f14b6195d49cb24563999070cbcfd128de9a8c40ed879e",
+  "copa_final_sha256": "c55ae0fb781a6f189ca4523864546bc7340c0f5e14e68ab920430bc0ecb57c3d",
+  "hjtm_sha256": "1abd60c38a8787c4d44cf4e81ec157eaf18745ce1dec28c366417030b1a22c61",
+  "model_path": "<LOCAL_HOME>/.cache/huggingface/hub/models--Qwen--Qwen2.5-3B-Instruct/snapshots/aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "device": "mps",
+  "torch_version": "2.7.1",
+  "transformers_model_class": "AutoModelForCausalLM",
+  "python": "3.11.16",
+  "cache_sha256": "76c8d8e83539b5242d8e15e3f77f1e494fa91ba5a98452c6d740ff22e2e707ed",
+  "all_scores_sha256": "f0ce714c7c2d616125e48bf7e7a1598e3ca0176a46fe393626550c6f696e0f20",
+  "copa_scores_sha256": "3c15878af7ec614c620a503787ebde5464c4f13945c201d482e19202722cadd9",
+  "pairwise_sha256": "98ced9bcc1f1f96151907eff617edcf839b81d679f82b4df254d7cd8b9d68c73",
+  "cluster_effects_sha256": "78421d3fba012d234d272dc49af179b1f484c055a538a5f845533bf7594e1a55",
+  "bootstrap_csv_sha256": "0e5328a7fc5023c15765a7ec653e3b5f15e62003e0d3152a602ce7bca111df1f",
+  "summary_sha256": "4e725bb4d04f786ec034b5fec8eb5f72925e6dca001ccbc07196f9270d88d985"
+}

@@ -1,0 +1,2 @@
+metric,calibration_n,target_fpr,decision_rule,threshold,realized_calibration_fpr,max_allowed_false_positives,actual_false_positives
+MAGE,280,0.05,machine_score_logit0 > threshold,5.387477874755859,0.05,14,14

@@ -1,0 +1,75 @@
+{
+  "status": "FROZEN_COMPLETE",
+  "experiment": "Fresh95 DIPPER extension",
+  "method": "DIPPER L60/O60",
+  "scientific_role": "external paraphrasing baseline",
+  "n_instances": 95,
+  "n_base_clusters": 48,
+  "absolute_mean_T0": {
+    "original": 1.3430302946313775,
+    "vanilla_t10": 1.1108402625917018,
+    "copa_3b": 1.028039167977061,
+    "hpcd_n0": 0.7306144558207776,
+    "dipper_l60_o60": 1.0175388710274014
+  },
+  "ordering": "HPCD < DIPPER < CoPA-3B < Vanilla < Original",
+  "dipper_vs_original": {
+    "cluster_delta": -0.32287237432161003,
+    "ci95": [
+      -0.5691396531486004,
+      -0.08025341177205093
+    ],
+    "p_effect_lt_0": 0.9955,
+    "interpretation": "DIPPER has lower T0 than Original and the 95% base-cluster bootstrap CI excludes zero."
+  },
+  "dipper_vs_vanilla": {
+    "cluster_delta": -0.0931009884490145,
+    "ci95": [
+      -0.2721211149449428,
+      0.10541330801229326
+    ],
+    "p_effect_lt_0": 0.8338,
+    "interpretation": "DIPPER has a favorable point estimate relative to Vanilla, but the 95% CI includes zero."
+  },
+  "dipper_vs_copa": {
+    "cluster_delta": -0.016685125117045285,
+    "ci95": [
+      -0.21743819499484862,
+      0.18875977527008006
+    ],
+    "p_effect_lt_0": 0.56816,
+    "interpretation": "DIPPER and CoPA-3B are not clearly separated under the frozen T0 endpoint."
+  },
+  "dipper_vs_hpcd": {
+    "cluster_delta": 0.28316413283471287,
+    "ci95": [
+      0.11258575445584257,
+      0.46502754166693505
+    ],
+    "p_effect_lt_0": 0.00024,
+    "interpretation": "DIPPER has higher T0 than HPCD; the 95% CI is entirely above zero, so HPCD shows stronger process alignment on Fresh95."
+  },
+  "fresh95_external_baseline_status": "HPCD_LOWER_T0_THAN_DIPPER",
+  "subgroup_claim_rule": "Domain and source-generator subgroup effects are descriptive only.",
+  "artifacts": {
+    "dipper_output_sha256": "7ff45d5472025ac7883a922590859dacdb5bc3d4a398c2789c1f995a05661622",
+    "return_freeze_sha256": "da6a1ce6de6f8f6aa8d335dea3ac7d1e289bb9d3fccf21453b635aea74d7d32d",
+    "historical_scores_sha256": "f0ce714c7c2d616125e48bf7e7a1598e3ca0176a46fe393626550c6f696e0f20",
+    "cache_sha256": "555c095dc7f3308bd9fc95ec7681664761bf43ee0b25dd86454355b358c98216",
+    "dipper_scores_sha256": "817ee0cfbd30b8a97494358d10613992a02c2e10ea1d9327839383570cd8cbea",
+    "all_scores_sha256": "84001ea6d363dac1d3df2fd5913a8cfb868c168a68b2eb9627b8d15b3f8840a8",
+    "pairs_sha256": "506ba2ea6a400c894280d1d5265b610b144c20924b5ea8a5b2f113dd23978a5f",
+    "clusters_sha256": "cc24192259adc42e183fc5809684c1bfbcfec21aaf9cf9189a5cdfdbf9dcb744",
+    "summary_sha256": "1f9d2a6c90ff27b6500ff61cb9a29d858b8efa9d4f578f66b958481f92d06917",
+    "runner_sha256": "802f6ff9df05da615f6d5f4168c235557621cbf71ac574a4e746a1ed4f2ca240"
+  },
+  "evaluation_locked": true,
+  "post_freeze_rules": {
+    "regenerate_dipper": false,
+    "retune_dipper": false,
+    "filter_dipper": false,
+    "select_dipper_by_t0": false,
+    "select_dipper_by_quality": false,
+    "select_dipper_by_detector": false
+  }
+}
